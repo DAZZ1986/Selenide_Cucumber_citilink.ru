@@ -1,0 +1,1 @@
+https://static.citilink.ru/build/js/vendors.bundle.js?1690197767 0:50455 Uncaught TypeError: $(...).size is not a function

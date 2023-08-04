@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class MainMenuBlock extends BasePage {
-    private final String listCatalogBtnLoc = "span[class^='css-']";
+    //private final String listCatalogBtnLoc = "span[class^='css-']";
+    @FindBy(xpath = "//span[text()='Каталог товаров']")
     private WebElement webCatalogBtn;
 
     private final String listLaptopsAndComputersBtnLoc = "a[class^='css-vrsjnq'][class$='e1mnvjgw0'][data-meta-name='DesktopMenu__category--menu-item'][href='/catalog/noutbuki-i-kompyutery/?ref=mainmenu']";
@@ -33,8 +34,8 @@ public class MainMenuBlock extends BasePage {
         dcap.setCapability("pageLoadStrategy", "eager");
 
         //клик по кнопке "Каталог"
-        List<WebElement> listCatalogBtn = driver.findElements(By.cssSelector(listCatalogBtnLoc));
-        webCatalogBtn = listCatalogBtn.get(1);
+        //List<WebElement> listCatalogBtn = driver.findElements(By.cssSelector(listCatalogBtnLoc));
+        //webCatalogBtn = listCatalogBtn.get(1);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webCatalogBtn));
         webCatalogBtn.click();
         Thread.sleep(2000);

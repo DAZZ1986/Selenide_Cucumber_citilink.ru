@@ -27,15 +27,15 @@ public class MainPage extends BasePage {
 
     @Step("Клик на кнопку Вход")
     public LoginPage clickSignInButton() {
-        //DesiredCapabilities dcap = new DesiredCapabilities();
-        //dcap.setCapability("pageLoadStrategy", "eager");
-        //String aaa = "asd";
+        //pageLoadStrategy - eager
+        DesiredCapabilities dcap = new DesiredCapabilities();
+        dcap.setCapability("pageLoadStrategy", "eager");
         //ждем пока загрузится эл. с телефоном
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(attr)));
         //просто тестовая проверка по наличию атрибута в веб элементе
-        //webDriverWait.until(ExpectedConditions.attributeContains(By.cssSelector(attr), "href", "tel:+78442433333"));
+        webDriverWait.until(ExpectedConditions.attributeContains(By.cssSelector(attr), "href", "tel:+78442433333"));
         //клик на кнопку войти
-        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(signInButton)));
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(signInButton)));
         webSignInButton.click();
         return new LoginPage(driver);
     }

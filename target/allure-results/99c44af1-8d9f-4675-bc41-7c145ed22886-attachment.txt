@@ -1,0 +1,1 @@
+https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r=3&v=1&_v=j101&tid=UA-5582449-1&cid=1892314263.1691156966&jid=297019294&uid=IL05562673&gjid=1464546713&_gid=1792793588.1691156967&_u=aCDAgEALAAQCAEAMI~&z=172834919 - Failed to load resource: net::ERR_CONNECTION_RESET

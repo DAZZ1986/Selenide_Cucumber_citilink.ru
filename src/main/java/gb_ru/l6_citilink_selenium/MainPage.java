@@ -1,12 +1,13 @@
 package gb_ru.l6_citilink_selenium;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 public class MainPage extends BasePage {
@@ -26,16 +27,24 @@ public class MainPage extends BasePage {
 
 
     @Step("Клик на кнопку Вход")
-    public LoginPage clickSignInButton() {
-        //pageLoadStrategy - eager
-        DesiredCapabilities dcap = new DesiredCapabilities();
-        dcap.setCapability("pageLoadStrategy", "eager");
+    public LoginPage clickSignInButton() throws InterruptedException {
+        //window.location.reload() - перезагрузка страницы js
+        //JavascriptExecutor js = (JavascriptExecutor) driver;
+        //driver.navigate().refresh();
+        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
+        //Thread.sleep(5000);
+        //((JavascriptExecutor)driver).executeScript("window.stop()");
+        //((JavascriptExecutor)driver).executeScript("window.location.reload()");
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1));
+        ((JavascriptExecutor)driver).executeScript("window.stop()");
+
+
         //ждем пока загрузится эл. с телефоном
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(attr)));
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(attr)));
         //просто тестовая проверка по наличию атрибута в веб элементе
-        webDriverWait.until(ExpectedConditions.attributeContains(By.cssSelector(attr), "href", "tel:+78442433333"));
+        //webDriverWait.until(ExpectedConditions.attributeContains(By.cssSelector(attr), "href", "tel:+78442433333"));
         //клик на кнопку войти
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(signInButton)));
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(signInButton)));
         webSignInButton.click();
         return new LoginPage(driver);
     }

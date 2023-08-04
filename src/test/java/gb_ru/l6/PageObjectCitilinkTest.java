@@ -46,7 +46,7 @@ public class PageObjectCitilinkTest {
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
-        options.addArguments("--window-size=1350,1050");
+        options.addArguments("--window-size=1450,1000");
         options.addArguments("--remote-allow-origins=*");
     }
     @BeforeEach
